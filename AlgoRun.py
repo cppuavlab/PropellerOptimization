@@ -10,7 +10,7 @@
 # SingleFileMakerCHARM.py
 # GABasebd.inp
 # GABaserw.inp
-# testscript.sh (linux shell script)
+# GACHARMrun.sh (linux shell script)
 # ALL Files listed above are REQUIRED for use of this script
 # Failure to have all of thes files will result in a FileNotFound error
 
