@@ -1,0 +1,829 @@
+ CHARM VERSION 8.0 (12/19/2024)
+ Comprehensive Hierarchical Aeromechanics Rotorcraft Model
+ Continuum Dynamics, Inc.
+
+ Date: 20250218   Time: 14:06:34
+
+ 
+ User requested   1 threads
+ User received    1 threads
+ Available are   24 threads
+
+ Rotor:  1
+          U-inf:    0.000
+          W-inf:    0.000
+  Advance ratio:    0.000
+    Shaft angle:    0.000
+ Sideslip angle    0.000
+
+ *** Rotor 1 ***
+     Modal amplitudes of Mode  1 are fixed around the azimuth at:
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+
+ ----------------------------------------------------- 
+ |          Hierarchical Fast Vortex Method           |
+ | Max number of vortex "source" elements..      9216 |
+ | Max number of "field" points............       895 |
+ | Max number of total (source + field) pts     20000 |
+ | Max free wake evaluation points.........         0 |
+ | Max free wake source points.............      9216 |
+ | Blade vortex lattice evaluation points             |
+ |   (may include reconstruction)..........       870 |
+ | Surface panel evaluation points.........         0 |
+ | Scan grid evaluation points.............        25 |
+ | Extra evaluation points.................         0 |
+ | Lifting surface evaluation points.......         0 |
+ | Ship airwake evaluation points..........         0 |
+ -----------------------------------------------------
+
+
+ ???????????????????????????????????????????????????????
+ ??  WARNING WARNING WARNING WARNING WARNING WARNING  ??
+ ??                     Rotor  1                      ??
+ ??  Over 10% of the Vortex Lattice Quads are aspect  ??
+ ??                 ratio 16 or above.                ??
+ ??  TO CONTINUE THIS CALCULATION,  you may have set  ??
+ ??  NSPAN = -NSPAN in the Blade Geometry Input File  ??
+ ???????????????????????????????????????????????????????
+
+     Modal amplitudes of Mode 1 are fixed and have been renormalized: 
+     New amplitudes:
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+
+
+ **********************************************************
+ *  The blade dynamics of Rotor 1 is being calculated now *
+ *                 This is call number    1               *
+ **********************************************************
+
+                                                              loops to
+     A1S     B1S   coning    a1s     b1s   collective    CT   converge
+   0.0000  0.0000  0.0000  0.0000  0.0000     0.00    0.02856     1
+ Adjusting simple inflow downwash to match CT =  0.02856
+   0.0000  0.0000  0.0000  0.0000  0.0000     0.00    0.01841     1
+ Adjusting simple inflow downwash to match CT =  0.01841
+   0.0000  0.0000  0.0000  0.0000  0.0000     0.00    0.02104     1
+ Adjusting simple inflow downwash to match CT =  0.02104
+   0.0000  0.0000  0.0000  0.0000  0.0000     0.00    0.01997     1
+ Adjusting simple inflow downwash to match CT =  0.01997
+   0.0000  0.0000  0.0000  0.0000  0.0000     0.00    0.01982     1
+ Adjusting simple inflow downwash to match CT =  0.01982
+   0.0000  0.0000  0.0000  0.0000  0.0000     0.00    0.01981     1
+
+ Collective =    0.00 degrees.
+ Lateral cyclic (A1S) =    0.00 degrees.
+ Longitudinal cyclic (B1S) =    0.00 degrees.
+ Coning =    0.00 degrees.
+ Lateral flapping (b1s) =    0.00 degrees.
+ Longitudinal Flapping (a1s) =    0.00 degrees.
+ Lag Angle =    0.00 degrees.
+ CT =  0.019811
+ CQ =  0.002613
+
+ Figure of Merit =   0.755
+
+ Mode  1 magnitudes at each azimuth: 
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+
+
+        INTEGRATED PERFORMANCE THIS REVOLUTION - ROTOR 1:
+
+
+     Incoming velocity (U,V,W):      0.000     0.000     0.000   ft/s
+                  Flight speed:      0.000 ft/s
+            Tip speed (OMEGAR):    720.000 ft/s
+Advance ratio (inertial frame):      0.000
+   Advance ratio (shaft frame):      0.000
+          Shaft angle (ALPHAS):      0.000 degs   + back rel. to free stream
+        Sideslip angle (BETAS):      0.000 degs   positive yawed toward
+                                                  the retreating side
+
+                                 lbs/hp      coefficient   last    0 revs
+----------------------------------------------------------------------
+SHAFT AXES:
+
+ Thrust (+up)                    4910.33      0.0198109      4910.33
+   Induced                       4927.39      0.0198797
+   Profile                        -17.06     -0.0000688
+
+ H-force (+back)                    0.00      0.0000000         0.00
+   Induced                          0.00      0.0000000
+   Profile                          0.00      0.0000000
+
+ Y-force (+adv side)               -0.00     -0.0000000        -0.00
+   Induced                         -0.00     -0.0000000
+   Profile                         -0.00     -0.0000000
+
+ Shaft Power                     847.791      0.0026128      847.791
+   Induced                        775.29      0.0023894      775.287
+   Profile                         72.50      0.0002235       72.503
+
+ Hub loads (shaft frame):  
+   Rearward force (-x-dir)         0.114      0.0000005
+   Sideward force (+y-dir)        -0.037     -0.0000001
+   Vertical force (-z-dir)      4910.326      0.0198109
+   Roll moment  (about +x)         0.001      0.0000000
+   Pitch moment (about +y)        -0.078     -0.0000000
+   Yaw moment   (about +z)      5180.941      0.0026128
+
+ Lift offsets: 
+   lateral                                  0.0000000
+   longitudinal                            -0.0000020
+
+ Propulsive efficiency (W/OMEGAR)(CT/CP):   0.000
+
+----------------------------------------------------------------------------
+WIND AXES:
+
+ Lift (+up)                      4910.33      0.0198109
+   Induced                       4927.39      0.0198797
+   Profile                        -17.06     -0.0000688
+
+ X-force (+back)                    0.00      0.0000000
+   Induced                          0.00      0.0000000
+   Profile                          0.00      0.0000000
+
+ Side force (+adv side)            -0.00     -0.0000000
+   Induced                         -0.00     -0.0000000
+   Profile                         -0.00     -0.0000000
+
+ Total Power (energy balance)     847.79      0.0026128
+   Rotor power                    847.79      0.0026128
+    Induced                       775.29      0.0023894
+    Profile                        72.50      0.0002235
+   Parasite power                   0.00      0.0000000
+   Climb power                      0.00      0.0000000
+ Ideal Induced Power              639.76      0.0019717
+ Rotor efficiency                  0.825
+ Kappai=InducedPow/IdealPow        1.212
+ Cdmean=8(CPo/s)/F(mux,muz)        0.010593
+
+ Drag to lift ratio (D/L)          0.000
+   Rotor                           0.000
+    Induced                        0.000
+    Profile                        0.000
+   Parasite                        0.000
+   Climb                           0.000
+
+ Rotor equivalent drag (De)         0.00      0.0000000
+   lift to drag ratio (L/De)        0.00
+
+ Power to thrust ratio (P/T)       0.173      0.1318890
+   Rotor power                     0.173      0.1318890
+    Induced                        0.158      0.1206098
+    Profile                        0.015      0.0112792
+   Parasite power                  0.000      0.0000000
+   Climb power                     0.000      0.0000000
+
+ Hub loads (aircraft frame):  
+   Rearward force (-x-dir)         0.114      0.0000005
+   Sideward force (+y-dir)        -0.037     -0.0000001
+   Vertical force (-z-dir)      4910.327      0.0198109
+   Roll moment  (about +x)         0.001      0.0000000
+   Pitch moment (about +y)        -0.078     -0.0000000
+   Yaw moment   (about +z)      5180.942      0.0026128
+
+ Hub loads (inertial frame):  
+   Rearward force (-x-dir)         0.114      0.0000005
+   Sideward force (+y-dir)        -0.037     -0.0000001
+   Vertical force (-z-dir)      4910.327      0.0198109
+   Roll moment  (about +x)         0.001      0.0000000
+   Pitch moment (about +y)        -0.078     -0.0000000
+   Yaw moment   (about +z)      5180.942      0.0026128
+
+-----------------------------------------------------------
+
+  Average blade chord (blade area/span):  1.719025 ft.
+ Solidity = (N/PI*R^2)*INTEGRAL(c(r)dr):  0.208547
+    thrust-weighted --> INTG(c(r)r^2dr):  0.168756
+
+ Figure of Merit (FM)............     0.7546126
+   average over last   0 revs....     0.7546126
+
+          Collective Pitch:                     0.00 degrees
+          Lateral Cyclic (A1S):                 0.00 degrees
+          Longitudinal Cyclic (B1S):            0.00 degrees
+
+          Coning angle:                         0.00 degrees
+          Lateral Flapping Angle (b1s):         0.00 degrees
+          Longitudinal Flapping Angle (a1s):    0.00 degrees
+
+          Lag angle:                            0.00 degrees
+          Lateral Lag Angle:                    0.00 degrees
+          Longitudinal Lag Angle:               0.00 degrees
+
+
+ *******************************************
+ *  The wake calculation is beginning now  *
+ *         This is call number    1        *
+ *******************************************
+
+
+ **************************************************
+ *********       3882 BCVES at NLOC =  1  *********
+ **************************************************
+
+
+ **********************************************************
+ *  The blade dynamics of Rotor 1 is being calculated now *
+ *                 This is call number    2               *
+ **********************************************************
+
+                                                              loops to
+     A1S     B1S   coning    a1s     b1s   collective    CT   converge
+   0.0000  0.0000  0.0000  0.0000  0.0000     0.00    0.01742     1
+
+ Collective =    0.00 degrees.
+ Lateral cyclic (A1S) =    0.00 degrees.
+ Longitudinal cyclic (B1S) =    0.00 degrees.
+ Coning =    0.00 degrees.
+ Lateral flapping (b1s) =    0.00 degrees.
+ Longitudinal Flapping (a1s) =    0.00 degrees.
+ Lag Angle =    0.00 degrees.
+ CT =  0.017424
+ CQ =  0.002226
+
+ Figure of Merit =   0.731
+
+ Mode  1 magnitudes at each azimuth: 
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+
+ CONVG1 current CONVG1 required:   0.0000000E+00  -1.000000    
+ CONVG2 current CONVG2 required:   2.3867544E-03  -1.000000    
+
+ *******************************************
+ *  The wake calculation is beginning now  *
+ *         This is call number    2        *
+ *******************************************
+
+
+ **********************************************************
+ *  The blade dynamics of Rotor 1 is being calculated now *
+ *                 This is call number    3               *
+ **********************************************************
+
+                                                              loops to
+     A1S     B1S   coning    a1s     b1s   collective    CT   converge
+   0.0000  0.0000  0.0000  0.0000  0.0000     0.00    0.01969     1
+
+ Collective =    0.00 degrees.
+ Lateral cyclic (A1S) =    0.00 degrees.
+ Longitudinal cyclic (B1S) =    0.00 degrees.
+ Coning =    0.00 degrees.
+ Lateral flapping (b1s) =    0.00 degrees.
+ Longitudinal Flapping (a1s) =    0.00 degrees.
+ Lag Angle =    0.00 degrees.
+ CT =  0.019687
+ CQ =  0.002352
+
+ Figure of Merit =   0.831
+
+ Mode  1 magnitudes at each azimuth: 
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+
+ CONVG1 current CONVG1 required:   0.0000000E+00  -1.000000    
+ CONVG2 current CONVG2 required:   2.2625476E-03  -1.000000    
+
+ *******************************************
+ *  The wake calculation is beginning now  *
+ *         This is call number    3        *
+ *******************************************
+
+
+ **********************************************************
+ *  The blade dynamics of Rotor 1 is being calculated now *
+ *                 This is call number    4               *
+ **********************************************************
+
+                                                              loops to
+     A1S     B1S   coning    a1s     b1s   collective    CT   converge
+   0.0000  0.0000  0.0000  0.0000  0.0000     0.00    0.01805     1
+
+ Collective =    0.00 degrees.
+ Lateral cyclic (A1S) =    0.00 degrees.
+ Longitudinal cyclic (B1S) =    0.00 degrees.
+ Coning =    0.00 degrees.
+ Lateral flapping (b1s) =    0.00 degrees.
+ Longitudinal Flapping (a1s) =    0.00 degrees.
+ Lag Angle =    0.00 degrees.
+ CT =  0.018054
+ CQ =  0.002267
+
+ Figure of Merit =   0.757
+
+ Mode  1 magnitudes at each azimuth: 
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+
+ CONVG1 current CONVG1 required:   0.0000000E+00  -1.000000    
+ CONVG2 current CONVG2 required:   1.6330071E-03  -1.000000    
+
+ +++ Maximum blade revolutions have been completed +++
+
+
+***** RESULTS AFTER REVOLUTION    3 *****
+
+
+        INTEGRATED PERFORMANCE THIS REVOLUTION - ROTOR 1:
+
+
+     Incoming velocity (U,V,W):      0.000     0.000     0.000   ft/s
+                  Flight speed:      0.000 ft/s
+            Tip speed (OMEGAR):    720.000 ft/s
+Advance ratio (inertial frame):      0.000
+   Advance ratio (shaft frame):      0.000
+          Shaft angle (ALPHAS):      0.000 degs   + back rel. to free stream
+        Sideslip angle (BETAS):      0.000 degs   positive yawed toward
+                                                  the retreating side
+
+                                 lbs/hp      coefficient   last    3 revs
+----------------------------------------------------------------------
+SHAFT AXES:
+
+ Thrust (+up)                    4474.78      0.0180537      4557.69
+   Induced                       4489.35      0.0181124
+   Profile                        -14.57     -0.0000588
+
+ H-force (+back)                   -0.00     -0.0000000         0.00
+   Induced                         -0.00     -0.0000000
+   Profile                          0.00      0.0000000
+
+ Y-force (+adv side)                0.00      0.0000000         0.00
+   Induced                          0.00      0.0000000
+   Profile                          0.00      0.0000000
+
+ Shaft Power                     735.518      0.0022668      740.302
+   Induced                        668.30      0.0020597      671.871
+   Profile                         67.22      0.0002072       68.430
+
+ Hub loads (shaft frame):  
+   Rearward force (-x-dir)         0.112      0.0000005
+   Sideward force (+y-dir)        -0.052     -0.0000002
+   Vertical force (-z-dir)      4474.785      0.0180537
+   Roll moment  (about +x)         0.005      0.0000000
+   Pitch moment (about +y)         0.022      0.0000000
+   Yaw moment   (about +z)      4494.836      0.0022668
+
+ Lift offsets: 
+   lateral                                  0.0000002
+   longitudinal                             0.0000006
+
+ Propulsive efficiency (W/OMEGAR)(CT/CP):   0.000
+
+----------------------------------------------------------------------------
+WIND AXES:
+
+ Lift (+up)                      4474.78      0.0180537
+   Induced                       4489.35      0.0181124
+   Profile                        -14.57     -0.0000588
+
+ X-force (+back)                   -0.00     -0.0000000
+   Induced                         -0.00     -0.0000000
+   Profile                          0.00      0.0000000
+
+ Side force (+adv side)             0.00      0.0000000
+   Induced                          0.00      0.0000000
+   Profile                          0.00      0.0000000
+
+ Total Power (energy balance)     735.52      0.0022668
+   Rotor power                    735.52      0.0022668
+    Induced                       668.30      0.0020597
+    Profile                        67.22      0.0002072
+   Parasite power                   0.00      0.0000000
+   Climb power                      0.00      0.0000000
+ Ideal Induced Power              556.56      0.0017153
+ Rotor efficiency                  0.833
+ Kappai=InducedPow/IdealPow        1.201
+ Cdmean=8(CPo/s)/F(mux,muz)        0.009821
+
+ Drag to lift ratio (D/L)          0.000
+   Rotor                           0.000
+    Induced                        0.000
+    Profile                        0.000
+   Parasite                        0.000
+   Climb                           0.000
+
+ Rotor equivalent drag (De)         0.00      0.0000000
+   lift to drag ratio (L/De)        0.00
+
+ Power to thrust ratio (P/T)       0.164      0.1255601
+   Rotor power                     0.164      0.1255601
+    Induced                        0.149      0.1140851
+    Profile                        0.015      0.0114750
+   Parasite power                  0.000      0.0000000
+   Climb power                     0.000      0.0000000
+
+ Hub loads (aircraft frame):  
+   Rearward force (-x-dir)         0.112      0.0000005
+   Sideward force (+y-dir)        -0.052     -0.0000002
+   Vertical force (-z-dir)      4474.785      0.0180537
+   Roll moment  (about +x)         0.005      0.0000000
+   Pitch moment (about +y)         0.022      0.0000000
+   Yaw moment   (about +z)      4494.836      0.0022668
+
+ Hub loads (inertial frame):  
+   Rearward force (-x-dir)         0.112      0.0000005
+   Sideward force (+y-dir)        -0.052     -0.0000002
+   Vertical force (-z-dir)      4474.785      0.0180537
+   Roll moment  (about +x)         0.005      0.0000000
+   Pitch moment (about +y)         0.022      0.0000000
+   Yaw moment   (about +z)      4494.836      0.0022668
+
+-----------------------------------------------------------
+
+  Average blade chord (blade area/span):  1.719025 ft.
+ Solidity = (N/PI*R^2)*INTEGRAL(c(r)dr):  0.208547
+    thrust-weighted --> INTG(c(r)r^2dr):  0.168756
+
+ Figure of Merit (FM)............     0.7566789
+   average over last   3 revs....     0.7727809
+
+          Collective Pitch:                     0.00 degrees
+          Lateral Cyclic (A1S):                 0.00 degrees
+          Longitudinal Cyclic (B1S):            0.00 degrees
+
+          Coning angle:                         0.00 degrees
+          Lateral Flapping Angle (b1s):         0.00 degrees
+          Longitudinal Flapping Angle (a1s):    0.00 degrees
+
+          Lag angle:                            0.00 degrees
+          Lateral Lag Angle:                    0.00 degrees
+          Longitudinal Lag Angle:               0.00 degrees
+
+Aircraft 1 loads (inertial frame): 
+ Weight =      0.000 lb
+ Rotor  1 loads:
+   Forward force  (+x-dir)        -0.112 lb
+   Sideward force (+y-dir)        -0.052 lb
+   Downward force (+z-dir)     -4474.785 lb
+   Roll moment  (about +x)         0.005 ft-lb
+   Pitch moment (about +y)         0.022 ft-lb
+   Yaw moment   (about +z)      4494.836 ft-lb
+ Total aircraft loads:
+   Forward force  (+x-dir)        -0.112 lb
+   Sideward force (+y-dir)        -0.052 lb
+   Downward force (+z-dir)     -4474.785 lb  Weight minus thrust
+   Roll moment  (about +x)         0.005 ft-lb
+   Pitch moment (about +y)         0.022 ft-lb
+   Yaw moment   (about +z)      4494.836 ft-lb
+
+ !!!! PSU-WOPWOP namelist generated !!!!
+ !!!! PSU-WOPWOP geometry/patch file generated for rotor            1  !!!!
+ !!!! PSU-WOPWOP surface geometry/patch file generated for rotor            1 
+  !!!!
+ !!!! PSU-WOPWOP FUNCTIONal data file generated for rotor            1  blade 
+           1  !!!!
+ !!!! PSU-WOPWOP FUNCTIONal data file generated for rotor            1  blade 
+           2  !!!!
+ !!!! PSU-WOPWOP FUNCTIONal data file generated for rotor            1  blade 
+           3  !!!!
+ END-OF-COMPUTATION.
+********** PSU-WOPWOP Version 3.5.0 (Build bc9e0db) ***********
+ Opening: cases.nam
+  
+ *****************************************************************
+ ***  Reading case file: ./charm.nam
+ *****************************************************************
+ WARNING: NbHarmonics was specified. This will filter the FFT so only the first
+          nbHarmonics number of bins are shown. However, unless the input 
+          time parameters leads to a frequency bin width equal to the blade passage frequency,
+          nbHarmonics will not output the first nbHarmonics of blade passage frequency.
+ WARNING: Recording pressure or spectrum over grid.
+          This may be a VERY large file.
+ WARNING: NbHarmonics was specified and will override the use of
+          highPassFrequency and lowPassFrequency
+ Environment Created
+ Case Setup Time =   1.459999999860884E-002
+ Computing noise for Observers
+ Grid point:    1 of    25
+ At Location:    0.00000       -15.2400        0.00000    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:    2 of    25
+ At Location:    10.7763       -10.7763        0.00000    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:    3 of    25
+ At Location:    15.2400        0.00000        0.00000    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:    4 of    25
+ At Location:    10.7763        10.7763        0.00000    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:    5 of    25
+ At Location:    0.00000       -14.7207        3.94440    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:    6 of    25
+ At Location:    10.4091       -10.4091        3.94440    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:    7 of    25
+ At Location:    14.7207        0.00000        3.94440    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:    8 of    25
+ At Location:    10.4091        10.4091        3.94440    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:    9 of    25
+ At Location:    0.00000       -13.1982        7.62000    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   10 of    25
+ At Location:    9.33256       -9.33256        7.62000    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   11 of    25
+ At Location:    13.1982        0.00000        7.62000    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   12 of    25
+ At Location:    9.33256        9.33256        7.62000    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   13 of    25
+ At Location:    0.00000       -10.7763        10.7763    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   14 of    25
+ At Location:    7.62000       -7.62000        10.7763    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   15 of    25
+ At Location:    10.7763        0.00000        10.7763    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   16 of    25
+ At Location:    7.62000        7.62000        10.7763    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   17 of    25
+ At Location:    0.00000       -7.62000        13.1982    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   18 of    25
+ At Location:    5.38815       -5.38815        13.1982    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   19 of    25
+ At Location:    7.62000        0.00000        13.1982    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   20 of    25
+ At Location:    5.38815        5.38815        13.1982    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   21 of    25
+ At Location:    0.00000       -3.94440        14.7207    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   22 of    25
+ At Location:    2.78911       -2.78911        14.7207    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   23 of    25
+ At Location:    3.94440        0.00000        14.7207    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   24 of    25
+ At Location:    2.78911        2.78911        14.7207    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ Grid point:   25 of    25
+ At Location:    0.00000        0.00000        15.2400    
+   Integrating Aircraft
+     Integrating Rotor 1
+       Integrating Thickness Blade 1
+       Integrating Loading Blade 1
+       Integrating Thickness Blade 2
+       Integrating Loading Blade 2
+       Integrating Thickness Blade 3
+       Integrating Loading Blade 3
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ WARNING: No weighting window was applied to the time
+          histories before calculating spectrum data.
+ Environment Destroyed.
+ Total Execution Time =    3.04859999999826     
+  
+ *** process_psuwopwop (3-31-2023) executing ***
+ *** Processing of PSU-WOPWOP output data is beginning ***
+  
+ *** oaspldB.dat processing complete ***
+ *** oaspldBA.dat processing complete ***
+ *** pressure.dat processing complete ***
+ *** spl_spectrum.dat processing complete ***
+  
+ *** Processing of PSU-WOPWOP output data complete ***
+  
+3.88user 0.13system 0:04.01elapsed 99%CPU (0avgtext+0avgdata 78824maxresident)k
+168inputs+10520outputs (2major+3693minor)pagefaults 0swaps
