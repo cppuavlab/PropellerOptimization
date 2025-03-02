@@ -21,13 +21,6 @@ class staging():
             # if file is found, open it and edit it
             self.df = pd.read_csv(self.file)
 
-            # I need to fix this still
-            # Insert a row indicating a new run has been opened (after the data)
-            new_row = pd.DataFrame([['New Algorithm Run Initiated'] + [None] * (len(self.df.columns) - 1)], 
-                                   columns=self.df.columns)
-            self.df = pd.concat([self.df, new_row], ignore_index=True)
-            self.save_to_csv()
-
         # if file is not found, make a new one
         except FileNotFoundError:
             self.df = pd.DataFrame(columns = ['Iteration', 
