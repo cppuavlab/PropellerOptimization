@@ -68,7 +68,12 @@ Add inputs as arguments into relevant file creation methods
 Note: If you decide to change the naming convetion of the created files, reflect the relevant changes to the GACHARMrun.sh shell script and AlgoRun.py
 Note: Errors will arise if you give CHARM files in an unexpected file format, resulting in script termination
 
+--- File Specific: GACHARMrun.sh ---
+This file is a Linux Shell Script. 
+It must have the LF end of line sequence, which Linux expects. 
+Check end of line sequence in bottom right of Visual Studio Code or check in terminal
+
 
 Created by: Nathan Rong
 Contact: nrong@cpp.edu
-Last Modified: 03/02/2025
+Last Modified: 03/04/2025
