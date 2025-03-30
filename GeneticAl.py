@@ -1,9 +1,9 @@
 # Created by: Nathan Rong (nrong@cpp.edu)
-# Date: 03/01/2025
-# Version: 1.0
-# Python Version 3.13.0
+# Date: 03/30/2025
+# Version: 2.1
+# Python Version 3.13.0 or greater recommended
 # For use of OpenMDAO Simple Genetic Algorithm
-# with CHARM software for optimization
+# with CHARM software for optimizationn
 
 # This script houses important methods for file parsing, storage, and deletion
 # Read comments in and above each method before using/editing
@@ -11,11 +11,29 @@
 
 
 import pandas as pd
-import os
+import numpy as np
 
-# Class for dynamically writing values into CSV file
+
 class staging():
+    """
+    This class supports data logging from individual inputs to a structured CSV dataframe
+
+    Attributes:
+    -----------
+    file : string
+        File path
+    df : dataframe
+        Dataframe to log data into
+    """
     def __init__(self, filename):
+        """
+        Initialize dataframe
+
+        Parameters:
+        ----------
+        filename : string
+            File name for output CSV file
+        """
         self.file = filename + '.csv'
         try:
             # if file is found, open it and edit it
@@ -27,71 +45,137 @@ class staging():
             'Time', 'Twist', 'Anhedral', 'ZDistance', 'Twist1', 'Twist2', 
             'Twist3', 'Twist4', 'Twist5', 'Twist6', 'Twist7', 'Twist8', 
             'Twist9', 'Twist10','Observer2', 'Observer21', 'Observer22', 
-            'Observer23', 'Observer24', 'Observer25'])
+            'Observer23', 'Observer24', 'Observer25', 'Thrust1', 'Thrust2', 
+            'TotalThrust', 'YawMoment1', 'YawMoment2', 'TotalYaw', 'PowerCoef', 'RotorEff'])
 
 
     def save_to_csv(self):
+        # save Dataframe as CSV file
         self.df.to_csv(self.file, index=False)
 
-    # Appends current iteration of Genetic Algorithm
-    # All other columns must be filled with filler values
-    # Filler values must correspond to the data type expected in that column
-    # Failure to keep consistent data types will result in an error
-    # Failure to have the correct dataframe size will result in an error
+ 
     def append_iterations(self, iteration):
+        """
+        Append rows to structured Dataframe
+
+        Parameters:
+        ----------
+        iteration : int
+            Row number to create row
+        """
         # maybe make some way so that this is automated
         self.df.loc[len(self.df)] = [iteration, '', float(0), float(0), float(0), 
+                                     float(0), float(0), float(0), float(0),
+                                     float(0), float(0), float(0), float(0),
                                      float(0), float(0), float(0), float(0),
                                      float(0), float(0), float(0), float(0),
                                      float(0), float(0), float(0), float(0),
                                      float(0), float(0), float(0), float(0)] 
         self.save_to_csv()
 
-    # Should append all inputs before appending any outputs
-    def append_vals(self, iteration, input_data, header_name):
-        # input_data is a single value
+    
+    def append_vals(self, iteration, input_data, header_name = None):
+        """
+        Append values into rows in structured Dataframe
+
+        Parameters:
+        ----------
+        iteration : int
+            Row to append value to
+        input_data : float
+            Value to append
+        header_name : str
+            Column name to append value into
+        """
+        # Check if input is a single value
         if type(input_data) is str:
+            if header_name is None:
+                raise ValueError('header_name must be provided when input_data is a string')
             self.df.loc[self.df['Iteration'] == iteration, header_name] = input_data
-        else:
+            
+        # Check if input is a dictionary
+        elif type(input_data) is dict:
+            for key, val in input_data.items():
+                self.df.loc[self.df['Iteration'] == iteration, key] = val
+        
+        # Check if input is a list
+        elif isinstance(input_data, np.ndarray):
+            if header_name is None:
+                raise ValueError('header_name must be provided when input_data is a np.ndarray')
             self.df.loc[self.df['Iteration'] == iteration, header_name] = round(input_data[0], 3)
+       
+        else:
+            raise ValueError('Recieved unexpected input data type while logging to CSV...')
         self.save_to_csv()
 
 
-
-# Batch file maker for injecting python commands through windows envrionment
-# Automatically uses scripts to access the Linux WSL environment
-# Edit your file name
-# class batch_file_maker_and_run():
-#     def __init__(self):
-#         self.content = [r'@echo off', 
-#                      f'wsl.exe bash -c "export PATH=\$PATH:. && cd ~/CHARM/CHARM_PREMIUM_v7.3gamma/NOISE && clear && runv7 . GAlgoRunsname"']
-#         self.content.append(r'echo %date% %time% & tzutil /g')
-#         # to print current time
-#         self.directory = os.getcwd()
-#         # edit your file name below
-#         self.file_path = f"{self.directory}/GAlgoRuns.bat"
-
-#         with open(self.file_path, 'w') as f:
-#             f.write("\n".join(self.content))
-
-#         # Execute batch file in DOS terminal
-#         os.system(self.file_path)
-
-
-# Filters data only to structured files, use only for .dat CHARM outputs
-# or select applications in .csv or other structured file types
 class data_filter():
+    """
+    This class transforms information from tabulated .DAT file format
+    Specifically for OASPL CHARM Simulation predictions
+
+    Parameters:
+    ----------
+    file_name : str
+        File name for .DAT file
+    observer : int
+        Observer number
+    header_name : str
+        Column header for data in original table
+    """
     def __init__(self, file_name, observer, header_name):
         self.temp = pd.read_csv(file_name, sep=r'\s+').at[observer-1, header_name]
 
-# Specificy list of files to delete in current working directory
-# !!WARNING!! this is a permanent deletion
-# !!WARNING!! BE CAREFUL not to delete important files
-# !!WARNING!! Files deleted through this method will not easily be restorable
-# !!WARNING!! Files deleted through this method will not be found in Recycle Bin
-class delete_files():
-    def __init__(self):
-        # make sure to be in the right directory, os.chdir?
-        list_of_files = ['GAlgoRunsrw.inp', 'GAlgoRunsbg.inp', 'GAlgoRunsname.inp']
-        for item in list_of_files:
-            os.remove(item)
+
+class log_file_parse():
+    """
+    This class is specifically for parsing CHARM run log files for aerodynamic data
+
+    Attributes:
+    -----------
+    dict : dict
+        Dictionary of parsed data
+
+    Parameters:
+    -----------
+    log_file_name : str
+        File name of CHARM run log
+    rotor_num : int
+        Number of rotors being simulated
+    """
+    def __init__(self, log_file_name, rotor_num=1):
+        # Check for correct inputs
+        if rotor_num not in (1,2):
+            raise TypeError('log_file_parse recieved incorrect argument... \n rotor_num must be a 1 or 2')
+        with open(log_file_name, 'r') as f:
+            # Initial file read
+            content = f.read()
+        # Create dictionary to store data
+        self.dict = {}
+        # Aircraft Aerodynamics data parse
+        rotor1 = content.split('Aircraft 1 loads (inertial frame): ')[1].split('Rotor  1 loads:')[1].split('Rotor  2 loads:')[0]
+        totals = content.split('Aircraft 1 loads (inertial frame): ')[1].split('Total aircraft loads:')[1].split('!!!!')[0]
+        self.dict['Thrust1'] = -1*float(rotor1.split('+z-dir)')[1].split('Roll')[0].split('lb')[0].strip())
+        self.dict['TotalThrust'] = -1*float(totals.split('z-dir)')[1].split('lb')[0].strip())
+        self.dict['YawMoment1'] = float(rotor1.split('about +z)')[1].split('ft')[0].strip())
+        
+        self.dict['TotalYaw'] = float(totals.split('about +z)')[1].split('ft')[0].strip())
+
+        # Wind Axis data parse
+        extra_content = content.split('WIND AXES:')[-1].split('Drag to lift')[0]
+        self.dict['PowerCoef'] = float(extra_content.split('balance)')[1].split('Rotor')[0].strip().split(' ')[-1])
+        self.dict['RotorEff'] = float(extra_content.split('efficiency')[1].split('Kapp')[0].strip().split(' ')[-1])
+
+        # Rotor 2 parse
+        if rotor_num == 2:
+            try:
+                rotor2 = content.split('Aircraft 1 loads (inertial frame): ')[1].split('Rotor  2 loads:')[1].split('Total aircraft loads:')[0]
+                self.dict['Thrust2'] = -1*float(rotor2.split('+z-dir)')[1].split('Roll')[0].split('lb')[0].strip())
+                self.dict['YawMoment2'] = float(rotor2.split('about +z)')[1].split('ft')[0].strip())
+            except:
+                raise TypeError('log_file_parse recieved incorrect argument... \n Rotor 2 not found')
+
+
+
+if __name__ == '__main__':
+    print(log_file_parse('example_onerotor.log').dict)
