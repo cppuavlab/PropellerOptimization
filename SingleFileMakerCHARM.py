@@ -1,7 +1,7 @@
 # Created by: Nathan Rong (nrong@cpp.edu)
-# Date: 03/01/2025
-# Version: 1.0
-# Python Version 3.13.0
+# Date: 03/30/2025
+# Version: 2.1
+# Python Version 3.13.0 or greater recommended
 # For use of OpenMDAO Simple Genetic Algorithm
 # with CHARM software for optimization
 
@@ -9,19 +9,42 @@
 # Read comments in and above each method before using/editing
 # Direct any questions to Nathan Rong (nrong@cpp.edu)
 
-
-# Creates dynamic CHARM input files
-# Only for creating RW, BG, and Name Input files
-# bd file and static (non-changing) rw files are attached and titled
-# GABasebd.inp
-# GABaserw.inp
 class FileMaker():
+    """
+    Creates CHARM run files: rw, bg, bd, and name
 
-    def __init__(self, val1, val2, val3, vala, valb, valc, vald, 
+    Attributes:
+    -----------
+    fp_list : list
+        List of file name extensions
+    num_rotors : int
+        Number of rotors
+    num_blades : int
+        Number of blades
+    """
+    def __init__(self, num_rotors, num_blades, val1, val2, val3, vala, valb, valc, vald, 
                  vale, valf, valg, valh, vali, valj):
-        # List of file name parts
+        """
+        Initialize variables and lists for file making
+
+        Parameters:
+        -----------
+        num_rotors : int
+            Number of rotors
+        num_blades : int
+            Number of blades
+        val1 : float
+            Data point that changes in files
+            Reflected in symbolics
+            Same for all val
+        """
         self.fp_list = ['GAlgoRuns', 'bg', 'rw', 'name']
-        
+        self.num_rotors, self.num_blades = num_rotors, num_blades
+
+        # Check for correct inputs
+        if self.num_blades % self.num_rotors != 0:
+            raise UserWarning(f'Incompatible blade or rotor count provided...\n Cannot have {self.num_blades} blades with {self.num_rotors} rotors.')
+
         # File names
         bgfilename = f'{self.fp_list[0]}{self.fp_list[1]}.inp'
         rwfilename = f'{self.fp_list[0]}{self.fp_list[2]}.inp'
@@ -30,8 +53,15 @@ class FileMaker():
         # Generate file content
         bg_content = self.generate_bg_content(val1, val2, vala, valb, valc, 
                                               vald, vale, valf, valg, valh, vali, valj)
-        rw_content = self.generate_rw_content(val3)
-        rc_content = self.generate_name_content(rwfilename, bgfilename)
+        # Capable of creating single rotor or dual rotor simulaton files
+        if self.num_rotors == 1:
+            rc_content = self.generate_name_content_one_rotors(rwfilename, bgfilename)
+            rw_content = self.generate_rw_content(0)
+        elif self.num_rotors == 2:
+            rc_content = self.generate_name_content_two_rotors(rwfilename, bgfilename)
+            rw_content = self.generate_rw_content(val3)
+        else:
+            raise UserWarning('Script not compatible with more than 2 rotors...')
 
         # Write content to files
         with open(bgfilename, 'w') as f:
@@ -86,7 +116,7 @@ NCHORD  NSPAN  ICOS
     def generate_rw_content(self, val3):
         return f"""# Generated RW File 
 NBLADE  OMEGA
-    1      500
+    {self.num_blades // self.num_rotors}      500
 IROTAT      XROTOR           X,Y,Z tilt     ITILT
     1     0.0   0.0  {val3:.1f}    0.0  0.0  30.0      1
 ICOLL   COLL     CT
@@ -135,7 +165,7 @@ NHHI (Higher harmonic cyclic pitch input flag)
     0
 """
 
-    def generate_name_content(self, rwfile, bgfile):
+    def generate_name_content_two_rotors(self, rwfile, bgfile):
         return f"""# Generated Name File
 KSIM
     0
@@ -188,3 +218,55 @@ ACOUSTICS_CODE
 NLS
     0
 """
+    
+    def generate_name_content_one_rotors(self, rwfile, bgfile):
+            return f"""# Generated Name File
+KSIM
+    0
+NROTOR
+    1
+PATHNAME
+    ../
+INPUT FILENAMESFront right rotor
+    {rwfile}
+    {bgfile}
+    GABasebd.inp
+    0012air.inp
+    None
+SSPD     RHO
+    1116.    0.002378
+SFRAME
+    1
+U   V   W      P   Q   R
+    0.0 0.0 0.0    0.0 0.0 0.0
+NPSI    NREV    CONVG1    CONVG2   CONVG3   MREV
+    24      3     -1.0     -1.0      -1.0      0
+IRST  IFREE  IGPR
+    0      0      0
+IOUT   NRS   (ROUT(I),I=1,NRS)
+    4     10  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  0.95  0.99
+NPRINT   IBLPLT   (IFILPLT(I),I=1,4)
+    0        0        3  3  3  3
+KOPT
+    0
+ISCAN (Scan plane flag)
+    1
+ISTRSS (Stress calculation flag)
+    0
+IFV    IQUIK1
+    0       1
+ISURF
+    0
+ISHIP
+    0
+IRECON   NOISE
+    0        4
+ACOUSTICS_CODE
+    1
+NLS
+    0
+"""
+    
+
+if __name__ == '__main__':
+    FileMaker(1, 2, -10, -10.714, 0, 2.286, 0, 1.143, 1.143, 1.143, 1.143, 0, 0 ,0 ,0)
