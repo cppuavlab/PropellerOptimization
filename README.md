@@ -2,7 +2,7 @@
 Scripts to use OpenMDAO Simple Genetic Algorithm to optimize blade geometry in CHARM.
 Can be modified for further analysis and applications in CHARM.
 
-Version 1.0
+Version 2.1
 
 --- Required Dependencies ---
 Python Version: 3.13.0
@@ -24,7 +24,6 @@ Linux Kernel Information: 5.15.167.4
   openmdao
   pandas
   pyDOE3
-  os (built-in)
   subprocess (built-in)
   datetime (built-in)
 
@@ -73,7 +72,9 @@ This file is a Linux Shell Script.
 It must have the LF end of line sequence, which Linux expects. 
 Check end of line sequence in bottom right of Visual Studio Code or check in terminal
 
+--- Revision History ---
+** Verison 2.1 ** (March 30, 2025): Added comments and docstrings, SQLite recorder, and modified driver options for increased accuracy
 
 Created by: Nathan Rong
 Contact: nrong@cpp.edu
-Last Modified: 03/04/2025
+Last Modified: 03/30/2025
