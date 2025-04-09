@@ -44,6 +44,9 @@ Note: If you are using the UAV Lab PC, the following windows shortcut could be u
 
 Note: Once in the NOISE directory, running the Algorithm is simple
   python3 AlgoRun.py
+Note: When copying the files into the Linux Environment, the python file may be written with no permissions
+Note: Run the following on all python files used in this run
+  chmod +x [insert file name]
 
 --- File Specific: AlgoRun.py ---
 How to Edit:
